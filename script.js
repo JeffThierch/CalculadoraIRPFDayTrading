@@ -6,10 +6,11 @@ function calcIRPF() {
   const tax = 0.19;
   const profitInt = parseInt(profitInput.value, 10);
   const calculo = profitInt * tax;
-  if (profitInput.value.trim() === '') {
+  if (profitInput.value.trim() === '' || profitInt < 0) {
+    profitInput.value = 0
     profitOutput.innerHTML = 'Insira um valor valido';
   } else {
-    profitOutput.innerHTML = `Total a Pagar: R$${calculo}`;
+    profitOutput.innerHTML = `Total a Pagar: R$ ${calculo.toFixed(2)}`;
   }
 }
 
